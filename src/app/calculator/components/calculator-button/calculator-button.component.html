@@ -1,4 +1,6 @@
-<button [ngClass]="{ 'is-command': isCommand(), 'is-command-plus': isCommandPlus() }">
-    <ng-content></ng-content>
-  </button>
+<button 
+  #button
+  [ngClass]="{ 'is-command': isCommand(), 'is-command-plus': isCommandPlus() }"
+  (click)="handleClick()"
+><ng-content></ng-content></button>
   
