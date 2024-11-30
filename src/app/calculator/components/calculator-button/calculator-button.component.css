@@ -9,3 +9,7 @@ button {
  .is-command-plus {
      @apply bg-indigo-700 bg-opacity-30 text-2xl
   }
+
+  .is-pressed {
+      @apply bg-indigo-800 bg-opacity-30 text-2xl
+   }
