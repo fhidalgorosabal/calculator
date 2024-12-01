@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, viewChildren } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, viewChildren } from '@angular/core';
 import { CalculatorButtonComponent } from '../calculator-button/calculator-button.component';
+import { CalculatorService } from '../../services/calculator.service';
 
 @Component({
   selector: 'calculator',
@@ -13,6 +14,12 @@ import { CalculatorButtonComponent } from '../calculator-button/calculator-butto
   }
 })
 export class CalculatorComponent {
+
+  private calculatorService = inject(CalculatorService);
+  resultText = computed(() => this.calculatorService.resultText());
+  subResultText = computed(() => this.calculatorService.subResultText());
+  lastOperator = computed(() => this.calculatorService.lastOperator());
+
   calculatorsButtons = viewChildren(CalculatorButtonComponent);
 
   handleClick(key: string){
@@ -23,7 +30,6 @@ export class CalculatorComponent {
     const keyEquivalents: Record<string, string> = {
       'Escape': 'C',
       'Delete': 'C',
-      'Backspace': 'C',
       '*': 'x',
       '/': '÷',
       'Enter': '='
