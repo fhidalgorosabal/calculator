@@ -1,59 +1,41 @@
-# Calculator
+# Gif Expert App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.1.
+Aplicación desarrollada en **Angular 19.0.1** y **Tailwind CSS** como parte del curso *"Angular Pro: Lleva tus bases al siguiente nivel"* de **Fernando Herrera**. Es una implementación práctica que destaca las nuevas características de las nuevas versiones de Angular.  
 
-## Development server
+---
 
-To start a local development server, run:
+## Características implementadas 
+- **Zoneless**
+- **OnPush Change Detection**
+- **ViewEncapsulation** 
+- **Input Signals** 
+- **Standalone Components** 
+- **Host Bindings** 
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Instalación y ejecución
 
-## Code scaffolding
+1. Clona este repositorio en tu máquina local `git clone https://github.com/fhidalgorosabal/calculator.git`.
+2. Accede a la carpeta del proyecto `cd calculator`.
+3. Ejecuta `npm install` para instalar los paquetes de node.
+4. Para iniciar la aplicación `ng serve` y accede en el navedador a `http://localhost:4200/`.
+   
+---   
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Aplicación
+![Calculator](src/assets/screenshot/calculator.png)
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Autor
 
-```bash
-ng generate --help
-```
+Desarrollado por: Fernando Hidalgo Rosabal.
 
-## Building
+---
 
-To build the project run:
+## Licencia
 
-```bash
-ng build
-```
+Este proyecto está licenciado bajo la [Licencia MIT](https://opensource.org/licenses/MIT).
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
