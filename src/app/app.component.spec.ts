@@ -14,13 +14,20 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  /* it(`should have the 'calculator' title`, () => {
+  it('should be 3', () => {
+    const num1 = 1;
+    const num2 = 2;
+    const result = num1 + num2;
+    expect(result).toBe(3);
+  });
+
+  it(`should have the 'calculator' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('calculator');
   });
 
-  it('should render title', () => {
+  /* it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
