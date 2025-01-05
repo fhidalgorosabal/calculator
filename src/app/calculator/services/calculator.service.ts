@@ -38,7 +38,6 @@ export class CalculatorService {
       return;
     }
 
-
     if (operators.includes(value)) {
       this.calculateResult();
       this.lastOperator.set(value);
