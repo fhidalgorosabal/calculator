@@ -24,6 +24,9 @@ Aplicación desarrollada en **Angular 19.0.1** y **Tailwind CSS** como parte del
 ---   
 
 ## Aplicación
+
+Puedes acceder a la aplicación desplegada aquí: [Calculator](https://calculator-fhr.netlify.app/calculator)
+
 ![Calculator](src/assets/screenshot/calculator.png)
 
 ---
