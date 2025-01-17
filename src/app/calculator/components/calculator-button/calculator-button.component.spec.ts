@@ -1,5 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CalculatorButtonComponent } from './calculator-button.component';
+import { Component } from '@angular/core';
+
+@Component({
+  standalone: true,
+  imports: [CalculatorButtonComponent],
+  template: `
+    <calculator-button>
+      <span>Content</span>
+    </calculator-button>
+  `,
+})
+class TestHostComponent {}
 
 describe('CalculatorButtonComponent', () => {
 
@@ -53,8 +65,11 @@ describe('CalculatorButtonComponent', () => {
     }, 101);
   });
 
-  /* it('should contain ng-content', () => { 
-    expect(compiled.querySelector('ng-content')).not.toBeNull();
-  }); */
+  it('should display projected content', () => { 
+    const testHostFixture = TestBed.createComponent(TestHostComponent);
+    const compiled = testHostFixture.nativeElement as HTMLDivElement;   
+
+    expect(compiled.querySelector('span')).not.toBeNull();
+  });
 
 });
