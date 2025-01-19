@@ -35,7 +35,7 @@ export class CalculatorComponent {
       'Enter': '='
     }
 
-    const key = keyEquivalents[event.key] ?? event.key;
+    const key = keyEquivalents[event.key] ?? event.key;    
     this.handleClick(key)
     this.calculatorsButtons().forEach(button => button.keyboardPressedStyle(key));
   }

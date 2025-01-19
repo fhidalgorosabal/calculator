@@ -30,6 +30,7 @@ export class CalculatorService {
 
     if (value === 'Backspace') {
       if (this.resultText() === '0') return;
+
       if (this.resultText().length === 1 || (this.resultText().includes('-') && this.resultText().length === 2)) {
         this.resultText.set('0');
         return;
@@ -39,20 +40,37 @@ export class CalculatorService {
     }
 
     if (operators.includes(value)) {
-      this.calculateResult();
-      this.lastOperator.set(value);
-      this.subResultText.set(this.resultText());
-      this.resultText.set('0');
+      if (operators.includes(this.resultText().slice(-1))) return;
+    
+      if (!this.resultText() || isNaN(parseFloat(this.resultText()))) {
+        this.resultText.set('0');
+        return;
+      }
+
+      const currentResult = this.resultText();    
+      this.calculateResult();    
+      this.lastOperator.set(value);    
+      this.subResultText.set(currentResult);
+
+      if (this.resultText() !== '0') {
+        this.resultText.set('0');
+      }    
       return;
     }
 
     if (this.resultText().length >= 10) return;
 
-    if (value === '.' && !this.resultText().includes('.')) {
+    if (value === '.') {
+      if (this.resultText().includes('.')) return;
+    
       if (this.resultText() === '0' || this.resultText() === '') {
         this.resultText.set('0.');
         return;
       }
+    
+      const lastChar = this.resultText().slice(-1);
+      if (operators.includes(lastChar)) return;
+    
       this.resultText.update(text => text + '.');
       return;
     }
@@ -60,11 +78,9 @@ export class CalculatorService {
     if (value === '0' && (this.resultText() === '0' || this.resultText() === '-0'))  return;  
 
     if (value === '+/-') {
-      if (this.resultText().includes('-')) {
-        this.resultText.update(text => text.slice(1));
-        return;
-      }
-      this.resultText.update(text => '-' + text);
+      const currentValue = this.resultText();
+      if (currentValue === '0') return;
+      this.resultText.update(text => (text.startsWith('-') ? text.slice(1) : '-' + text));
       return;
     }
 
@@ -83,15 +99,15 @@ export class CalculatorService {
     }
   }
 
-  calculateResult() {
-    const number1 = parseFloat(this.subResultText());
-    const number2 = parseFloat(this.resultText());
+  calculateResult() {    
+    const number1 = parseFloat(this.subResultText().replace(/[^0-9.-]/g, ''));
+    const number2 = parseFloat(this.resultText().replace(/[^0-9.-]/g, ''));
 
     let result = 0;
 
     switch (this.lastOperator()) {
       case '+':
-        result = number1 + number2;
+        result = parseFloat((number1 + number2).toFixed(10));
         break;
       case '-':
         result = number1 - number2;
@@ -100,13 +116,19 @@ export class CalculatorService {
         result = number1 * number2;
         break;   
       case '÷':
-        result = number1 / number2;
-        break;    
+        result = number2 === 0 ? NaN : number1 / number2;
+        break;          
     
       default:
         break;
     }
-    this.resultText.set(result.toString());
+  
+    if (!isFinite(result) && !isNaN(result)) {      
+      this.resultText.set('Error');
+    } else {
+      this.resultText.set(parseFloat(result.toPrecision(10)).toString());
+    }
+
     this.subResultText.set('0');
   }
 }
