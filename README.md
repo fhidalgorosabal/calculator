@@ -11,6 +11,7 @@ Aplicación desarrollada en **Angular 19.0.1** y **Tailwind CSS** como parte del
 - **Input Signals** 
 - **Standalone Components** 
 - **Host Bindings** 
+- **Pruebas unitarias y pruebas de integración usando Karma - Jasmine** 
 
 ---
 
