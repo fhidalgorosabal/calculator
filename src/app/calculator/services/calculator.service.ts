@@ -100,14 +100,16 @@ export class CalculatorService {
   }
 
   calculateResult() {    
-    const number1 = parseFloat(this.subResultText().replace(/[^0-9.-]/g, ''));
-    const number2 = parseFloat(this.resultText().replace(/[^0-9.-]/g, ''));
+    const number1 = parseFloat(this.subResultText());
+    const number2 = parseFloat(this.resultText());
+
+    if (isNaN(number1) || isNaN(number2)) return;
 
     let result = 0;
 
     switch (this.lastOperator()) {
       case '+':
-        result = parseFloat((number1 + number2).toFixed(10));
+        result = number1 + number2;
         break;
       case '-':
         result = number1 - number2;

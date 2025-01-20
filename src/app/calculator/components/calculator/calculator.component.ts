@@ -9,9 +9,9 @@ import { CalculatorService } from '../../services/calculator.service';
   ],
   templateUrl: './calculator.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
+  /* host: {
     '(document:keyup)': 'handleKeyboardEvent($event)'
-  }
+  } */
 })
 export class CalculatorComponent {
 
@@ -26,7 +26,7 @@ export class CalculatorComponent {
     this.calculatorService.constructNumber(key);
   }
   
-  handleKeyboardEvent(event: KeyboardEvent) {
+  /* handleKeyboardEvent(event: KeyboardEvent) {
     const keyEquivalents: Record<string, string> = {
       'Escape': 'C',
       'Delete': 'C',
@@ -38,6 +38,6 @@ export class CalculatorComponent {
     const key = keyEquivalents[event.key] ?? event.key;    
     this.handleClick(key)
     this.calculatorsButtons().forEach(button => button.keyboardPressedStyle(key));
-  }
+  } */
 
 }
