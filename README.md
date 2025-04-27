@@ -1,4 +1,4 @@
-# Gif Expert App
+# Calculator
 
 Aplicación desarrollada en **Angular 19.0.1** y **Tailwind CSS** como parte del curso *"Angular Pro: Lleva tus bases al siguiente nivel"* de **Fernando Herrera**. Es una implementación práctica que destaca las nuevas características de las nuevas versiones de Angular.  
 
