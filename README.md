@@ -37,9 +37,3 @@ Puedes acceder a la aplicación desplegada aquí: [Calculator](https://calculato
 Desarrollado por: Fernando Hidalgo Rosabal.
 
 ---
-
-## Licencia
-
-Este proyecto está licenciado bajo la [Licencia MIT](https://opensource.org/licenses/MIT).
-
----
